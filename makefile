@@ -1,3 +1,5 @@
+all:
+	echo "hello"
 init:
 	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
@@ -9,4 +11,5 @@ sex:
 	cp vim ~/.vimrc
 
 shit:
-	cp vim %USERPROFILE%\\_vimrc
+	@echo off
+	echo "use: cp vim %USERPROFILE%\\_vimrc"
