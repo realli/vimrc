@@ -1,7 +1,11 @@
 set nocompatible              " be iMproved
 filetype off                  " required!
 
-set rtp+=~/.vim/bundle/vundle/
+if has('win32')
+	set rtp+=~/vimfiles/bundle/vundle/
+else
+	set rtp+=~/.vim/bundle/vundle/
+endif
 call vundle#rc()
 
 " let Vundle manage Vundle
@@ -15,13 +19,12 @@ syntax on
 " my own bundle
 " color scheme molokai, like textmate
 Bundle 'tomasr/molokai'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'Lokaltog/vim-distinguished'
+" Bundle 'nanotech/jellybeans.vim'
+" Bundle 'Lokaltog/vim-distinguished'
 " Bundle 'altercation/vim-colors-solarized'
 " if $COLORTERM == 'gnome-terminal'
 	set t_Co=256
 "endif
-colorscheme molokai
 
 " javascript syntax
 Bundle 'jelera/vim-javascript-syntax'
@@ -52,10 +55,15 @@ else
 endif
 
 set showcmd
+set ruler
 set hidden
 
 set sw=4
 set ts=4
+if has("gui_running")
+	set guifont=Inconsolata:h14
+endif
+colorscheme molokai
 
 " begin script
 " maps
@@ -108,3 +116,14 @@ augroup ctagsupdate
 	au!
 	au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
 augroup end
+
+" encodings
+if has("win32")
+	set encoding=utf-8
+	set termencoding=utf-8
+	set fileencoding=utf-8
+	set fileencodings=utf-8,chinese,cp936
+	language messages zh_CN.utf-8
+	source $VIMRUNTIME/delmenu.vim
+	source $VIMRUNTIME/menu.vim
+endif
