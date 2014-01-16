@@ -8,12 +8,12 @@ usage
 
 * install vundle and init work:
     
-    make init
+        make init
     
 * update local .vimrc:
     
-    make remote
+        make remote
     
 * using .vimrc to replace this vim:
     
-    make sensing
+        make sensing
