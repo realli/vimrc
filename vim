@@ -61,7 +61,11 @@ set hidden
 set sw=4
 set ts=4
 if has("gui_running")
-	set guifont=Inconsolata:h14
+	if has("gui_gtk")
+		set guifont=Inconsolata\ Medium\ 12
+	elseif has("gui_win32")
+		set guifont=Inconsolata:h14
+	endif
 endif
 colorscheme molokai
 
@@ -97,33 +101,33 @@ augroup comments
 	autocmd FileType python nnoremap <localleader>z ^x<esc>
 	" auto fold in vimL using comments
 	autocmd FileType vim setlocal foldmethod=marker
-augroup end
-" }}}
+	augroup end
+		" }}}
 
-" better format like auto indention space tabs ---{{{
-augroup betterformat
-	au!
-	autocmd BufRead,BufWritePre *.js,*.html :normal gg=G''
-	autocmd FileType python setlocal et sta sw=4 sts=4
-augroup end
-" }}}
+		" better format like auto indention space tabs ---{{{
+		augroup betterformat
+			au!
+			autocmd BufRead,BufWritePre *.js,*.html :normal gg=G''
+			autocmd FileType python setlocal et sta sw=4 sts=4
+			augroup end
+				" }}}
 
-" tags set
-set tags+=tags,/
-" tagbar set , need tagbar install first
-nnoremap <F8> :TagbarToggle<cr> 
-augroup ctagsupdate
-	au!
-	au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
-augroup end
+				" tags set
+				set tags+=tags,/
+				" tagbar set , need tagbar install first
+				nnoremap <F8> :TagbarToggle<cr> 
+				augroup ctagsupdate
+					au!
+					au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
+					augroup end
 
-" encodings
-if has("win32")
-	set encoding=utf-8
-	set termencoding=utf-8
-	set fileencoding=utf-8
-	set fileencodings=utf-8,chinese,cp936
-	language messages zh_CN.utf-8
-	source $VIMRUNTIME/delmenu.vim
-	source $VIMRUNTIME/menu.vim
-endif
+						" encodings
+						if has("win32")
+							set encoding=utf-8
+							set termencoding=utf-8
+							set fileencoding=utf-8
+							set fileencodings=utf-8,chinese,cp936
+							language messages zh_CN.utf-8
+							source $VIMRUNTIME/delmenu.vim
+							source $VIMRUNTIME/menu.vim
+						endif
