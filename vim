@@ -23,7 +23,7 @@ Bundle 'tomasr/molokai'
 " Bundle 'Lokaltog/vim-distinguished'
 " Bundle 'altercation/vim-colors-solarized'
 " if $COLORTERM == 'gnome-terminal'
-	set t_Co=256
+set t_Co=256
 "endif
 
 " javascript syntax
@@ -101,33 +101,32 @@ augroup comments
 	autocmd FileType python nnoremap <localleader>z ^x<esc>
 	" auto fold in vimL using comments
 	autocmd FileType vim setlocal foldmethod=marker
-	augroup end
-		" }}}
+augroup END 
+" }}}
 
-		" better format like auto indention space tabs ---{{{
-		augroup betterformat
-			au!
-			autocmd BufRead,BufWritePre *.js,*.html :normal gg=G''
-			autocmd FileType python setlocal et sta sw=4 sts=4
-			augroup end
-				" }}}
+" better format like auto indention space tabs ---{{{
+augroup betterformat
+	au!
+	autocmd BufRead,BufWritePre *.js,*.html :normal gg=G''
+	autocmd FileType python setlocal et sta sw=4 sts=4
+augroup END 
+" }}}
 
-				" tags set
-				set tags+=tags,/
-				" tagbar set , need tagbar install first
-				nnoremap <F8> :TagbarToggle<cr> 
-				augroup ctagsupdate
-					au!
-					au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
-					augroup end
-
-						" encodings
-						if has("win32")
-							set encoding=utf-8
-							set termencoding=utf-8
-							set fileencoding=utf-8
-							set fileencodings=utf-8,chinese,cp936
-							language messages zh_CN.utf-8
-							source $VIMRUNTIME/delmenu.vim
-							source $VIMRUNTIME/menu.vim
-						endif
+" tags set
+set tags+=tags,/
+" tagbar set , need tagbar install first
+nnoremap <F8> :TagbarToggle<cr>
+augroup ctagsupdate
+	au!
+	au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
+augroup END 
+" encodings
+if has("win32")
+	set encoding=utf-8
+	set termencoding=utf-8
+	set fileencoding=utf-8
+	set fileencodings=utf-8,chinese,cp936
+	language messages zh_CN.utf-8
+	source $VIMRUNTIME/delmenu.vim
+	source $VIMRUNTIME/menu.vim
+endif
