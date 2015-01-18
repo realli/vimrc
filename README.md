@@ -1,12 +1,12 @@
 vimrc
 =====
 
-little script to track my vimrc file, using vundle to manage plugin
+little script to track my vimrc file, using [vim-plug](https://github.com/junegunn/vim-plug) to manage plugin
 
 usage
 ------
 
-* install vundle and init work:
+* install vim-plug and init work:
     
         make init
     

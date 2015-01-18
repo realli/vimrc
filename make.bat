@@ -14,8 +14,9 @@ if "%1" == "help" (
 
 if "%1" == "init" (
 	:init
-	cd /d %USERPROFILE%
-	git clone https//github.com/gmarik/vundle.git vimfiles/bundle/vundle
+    echo sorry, I haven't figure out how to achieve this in windows
+	REM cd /d %USERPROFILE%
+	REM git clone https//github.com/gmarik/vundle.git vimfiles/bundle/vundle
 )
 
 if "%1" == "remote" (

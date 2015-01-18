@@ -3,7 +3,8 @@ all:
 	@echo "remote       update .vimrc"
 	@echo "sensing      update vim"
 init:
-	git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+	mkdir -p ~/.vim/autoload
+	curl -fLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 remote: 
 	cp vim ~/.vimrc
 sensing: 
