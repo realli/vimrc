@@ -1,83 +1,101 @@
-set nocompatible              " be iMproved
-filetype off                  " required!
-
-if has('win32')
-	set rtp+=~/vimfiles/bundle/vundle/
-else
-	set rtp+=~/.vim/bundle/vundle/
+" some global settings, plugins, and so on---------------{{{
+let mapleader = ","
+let maplocalleader = "\\"
+" encodings
+if has("win32")
+    set encoding=utf-8
+    set termencoding=utf-8
+    set fileencoding=utf-8
+    set fileencodings=utf-8,chinese,cp936
+    language messages zh_CN.utf-8
+    source $VIMRUNTIME/delmenu.vim
+    source $VIMRUNTIME/menu.vim
 endif
-call vundle#rc()
 
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
+call plug#begin('~/.vim/plugged')
+Plug 'morhetz/gruvbox'
+Plug 'honza/vim-snippets'
+Plug 'bling/vim-airline'
+Plug 'kien/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'sjl/badwolf'
+Plug 'SirVer/ultisnips'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'vim-scripts/indenthaskell.vim'
+call plug#end()
 
-" end of vundle
 filetype plugin indent on
 syntax on
-
-" my own bundle
-" color scheme molokai, like textmate
-Bundle 'tomasr/molokai'
-" Bundle 'nanotech/jellybeans.vim'
-" Bundle 'Lokaltog/vim-distinguished'
-" Bundle 'altercation/vim-colors-solarized'
-" if $COLORTERM == 'gnome-terminal'
 set t_Co=256
-"endif
 
-" javascript syntax
-Bundle 'jelera/vim-javascript-syntax'
+" colorscheme moloka
+colorscheme badwolf
+set background=light
 
 " vim-airline
-Bundle 'bling/vim-airline'
-" tagbar
-Bundle 'majutsushi/tagbar'
 let g:airline#extensions#tabline#enabled = 1
+set laststatus=2
 
 " ctrlp
-Bundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip " linux ignore
 " set wildignore+=*\\tmp\\*,*.so,*.swp,*.zip,*.exe " windows ignore
 
-" end of bundles
+" snips
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+" If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
+
+" set the indent style of haskell
+let g:haskell_indent_if = 0
+
 set incsearch
 set nu
 set autoindent
-
 if has("vms")
-	set nobackup
+    set nobackup
 else
-	set backup
+    set backup
 endif
-
 set showcmd
 set ruler
 set hidden
 
 set sw=4
 set ts=4
+set expandtab
+set listchars=tab:»·,trail:·,eol:¶
+
 if has("gui_running")
-	if has("gui_gtk")
-		set guifont=Inconsolata\ Medium\ 12
-	elseif has("gui_win32")
-		set guifont=Inconsolata:h14
-	endif
+    set guioptions-=T
+"    set guioptions-=m
+    if has("gui_gtk")
+        set guifont=Inconsolata\ Medium\ 12
+    elseif has("gui_win32")
+        set guifont=consolas:h12
+    endif
 endif
-colorscheme molokai
+
+" }}}
 
 " begin script
 " maps
-let mapleader = ","
-let maplocalleader = "\\"
-
 nnoremap <leader>ev :80split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>cl :close<cr>
+nnoremap <leader>z :e.<cr>
+nnoremap <leader>q :bd<cr>
+nnoremap <leader>j :bn<cr>
+nnoremap <leader>k :bp<cr>
+
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>le
+nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>le
 
 " quick edit, located the parent dir quickly
 nnoremap <leader>ee :e <C-R>=expand("%:p:h") . "/"<cr>
@@ -85,31 +103,35 @@ cnoremap <leader>ee <C-R>=expand("%:p:h") . "/"<cr>
 
 inoremap <c-l> <c-o>zz
 inoremap jk <esc>
+inoremap <esc> <nop>
 
 cnoremap <C-A> <Home>
 cnoremap <C-F> <Right>
 cnoremap <C-B> <Left>
 cnoremap <C-E> <End>
+set cedit=<C-G>
+
+" quick mapping to easy motion' move command
+nmap cd <leader><leader>s
+nnoremap yd :set list! <cr>
+
+" end of script
+" some useful tips
+" :retab       »» re format tab and space
+" :set list    »» show all invisible
+" :%s/\s\+$/   »» remove all trailing space
 
 " comment for different filetypes ---------------{{{
 augroup comments
-	au!
-	" comment short key
-	autocmd FileType javascript nnoremap <localleader>c I//<esc>
-	autocmd FileType javascript nnoremap <localleader>z ^xx<esc>
-	autocmd FileType python nnoremap <localleader>c I#<esc>
-	autocmd FileType python nnoremap <localleader>z ^x<esc>
-	" auto fold in vimL using comments
-	autocmd FileType vim setlocal foldmethod=marker
-augroup END 
-" }}}
-
-" better format like auto indention space tabs ---{{{
-augroup betterformat
-	au!
-	autocmd BufRead,BufWritePre *.js,*.html :normal gg=G''
-	autocmd FileType python setlocal et sta sw=4 sts=4
-augroup END 
+    au!
+    " comment short key
+    autocmd FileType javascript nnoremap <localleader>c I//<esc>
+    autocmd FileType javascript nnoremap <localleader>z ^xx<esc>
+    autocmd FileType python nnoremap <localleader>c I#<esc>
+    autocmd FileType python nnoremap <localleader>z ^x<esc>
+    " auto fold in vimL using comments
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
 " }}}
 
 " tags set
@@ -117,16 +139,13 @@ set tags+=tags,/
 " tagbar set , need tagbar install first
 nnoremap <F8> :TagbarToggle<cr>
 augroup ctagsupdate
-	au!
-	au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
-augroup END 
-" encodings
-if has("win32")
-	set encoding=utf-8
-	set termencoding=utf-8
-	set fileencoding=utf-8
-	set fileencodings=utf-8,chinese,cp936
-	language messages zh_CN.utf-8
-	source $VIMRUNTIME/delmenu.vim
-	source $VIMRUNTIME/menu.vim
-endif
+    au!
+    au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
+augroup END
+
+
+
+
+
+
+
