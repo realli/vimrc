@@ -23,6 +23,8 @@ Plug 'SirVer/ultisnips'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'vim-scripts/indenthaskell.vim'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-bundler'
 call plug#end()
 
 filetype plugin indent on
@@ -67,8 +69,8 @@ set showcmd
 set ruler
 set hidden
 
-set sw=4
-set ts=4
+set sw=2
+set ts=2
 set expandtab
 set listchars=tab:»·,trail:·,eol:¶
 
