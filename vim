@@ -25,6 +25,7 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'vim-scripts/indenthaskell.vim'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
+Plug 'kovisoft/slimv'
 call plug#end()
 
 filetype plugin indent on
@@ -133,7 +134,9 @@ augroup comments
     autocmd FileType python nnoremap <localleader>z ^x<esc>
     " auto fold in vimL using comments
     autocmd FileType vim setlocal foldmethod=marker
+    autocmd FileType python setlocal sw=4 ts=4 expandtab
 augroup END
+
 " }}}
 
 " tags set
