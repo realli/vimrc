@@ -135,6 +135,7 @@ augroup comments
     " auto fold in vimL using comments
     autocmd FileType vim setlocal foldmethod=marker
     autocmd FileType python setlocal sw=4 ts=4 expandtab
+    autocmd FileType haskell setlocal sw=4 ts=4 expandtab
 augroup END
 
 " }}}
