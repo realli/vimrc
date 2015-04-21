@@ -22,10 +22,10 @@ Plug 'sjl/badwolf'
 Plug 'SirVer/ultisnips'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'jelera/vim-javascript-syntax'
-Plug 'vim-scripts/indenthaskell.vim'
+Plug 'raichoo/haskell-vim'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
-Plug 'kovisoft/slimv'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 filetype plugin indent on
@@ -70,10 +70,10 @@ set showcmd
 set ruler
 set hidden
 
-set sw=2
-set ts=2
+set sw=4
+set ts=4
 set expandtab
-set listchars=tab:»·,trail:·,eol:¶
+set listchars=tab:»·,trail:·,eol:¬
 
 if has("gui_running")
     set guioptions-=T
@@ -108,6 +108,9 @@ inoremap <c-l> <c-o>zz
 inoremap jk <esc>
 inoremap <esc> <nop>
 
+nnoremap H ^
+nnoremap L $
+
 cnoremap <C-A> <Home>
 cnoremap <C-F> <Right>
 cnoremap <C-B> <Left>
@@ -117,6 +120,7 @@ set cedit=<C-G>
 " quick mapping to easy motion' move command
 nmap cd <leader><leader>s
 nnoremap yd :set list! <cr>
+set list
 
 " end of script
 " some useful tips
@@ -128,10 +132,10 @@ nnoremap yd :set list! <cr>
 augroup comments
     au!
     " comment short key
-    autocmd FileType javascript nnoremap <localleader>c I//<esc>
-    autocmd FileType javascript nnoremap <localleader>z ^xx<esc>
-    autocmd FileType python nnoremap <localleader>c I#<esc>
-    autocmd FileType python nnoremap <localleader>z ^x<esc>
+    autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
+    autocmd FileType javascript nnoremap <buffer> <localleader>z ^xx<esc>
+    autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
+    autocmd FileType python nnoremap <buffer> <localleader>z ^x<esc>
     " auto fold in vimL using comments
     autocmd FileType vim setlocal foldmethod=marker
     autocmd FileType python setlocal sw=4 ts=4 expandtab
