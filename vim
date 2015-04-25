@@ -16,7 +16,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'honza/vim-snippets'
 Plug 'bling/vim-airline'
-Plug 'kien/ctrlp.vim'
+Plug 'Shougo/unite.vim'
 Plug 'majutsushi/tagbar'
 Plug 'sjl/badwolf'
 Plug 'SirVer/ultisnips'
@@ -39,13 +39,6 @@ set background=light
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
-
-" ctrlp
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip " linux ignore
-" set wildignore+=*\\tmp\\*,*.so,*.swp,*.zip,*.exe " windows ignore
 
 " snips
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
