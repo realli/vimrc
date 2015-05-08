@@ -1,6 +1,6 @@
 all:
 	@echo "init         init, clone vundle"
-	@echo "remote       update .vimrc"
+	@echo "remote       update ~/.vimrc"
 	@echo "sensing      update vim"
 init:
 	mkdir -p ~/.vim/autoload

@@ -22,7 +22,9 @@ Plug 'sjl/badwolf'
 Plug 'SirVer/ultisnips'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'jelera/vim-javascript-syntax'
+Plug 'wlangstroth/vim-racket'
 Plug 'raichoo/haskell-vim'
+Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-fugitive'
@@ -50,6 +52,11 @@ let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 
 " set the indent style of haskell
 let g:haskell_indent_if = 0
+let g:haskell_indent_case = 2
+let g:haskell_indent_let = 4
+let g:haskell_indent_where = 6
+let g:haskell_indent_do = 3
+let g:haskell_indent_in = 0
 
 set incsearch
 set nu
@@ -85,7 +92,7 @@ endif
 nnoremap <leader>ev :80split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>cl :close<cr>
-nnoremap <leader>z :e.<cr>
+nnoremap <leader>z :Unite file<cr>
 nnoremap <leader>q :bd<cr>
 nnoremap <leader>j :bn<cr>
 nnoremap <leader>k :bp<cr>
