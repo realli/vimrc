@@ -28,6 +28,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-fugitive'
+Plug 'vim-scripts/paredit.vim'
 call plug#end()
 
 filetype plugin indent on
@@ -92,7 +93,7 @@ endif
 nnoremap <leader>ev :80split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>cl :close<cr>
-nnoremap <leader>z :Unite file<cr>
+nnoremap <leader>z :e.<cr>
 nnoremap <leader>q :bd<cr>
 nnoremap <leader>j :bn<cr>
 nnoremap <leader>k :bp<cr>
