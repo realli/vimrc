@@ -61,6 +61,7 @@ let g:haskell_indent_in = 0
 
 set incsearch
 set nu
+set relativenumber
 set autoindent
 if has("vms")
     set nobackup
