@@ -159,6 +159,7 @@ augroup END
 " use Unite to search rec file
 nnoremap <c-p> :Unite file_rec <cr>
 nnoremap <c-o> :Unite buffer <cr>
+nnoremap <leader>u :Unite 
 
 
 
