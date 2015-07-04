@@ -28,7 +28,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-fugitive'
-Plug 'vim-scripts/paredit.vim'
+" Plug 'vim-scripts/paredit.vim'
+Plug 'kovisoft/slimv'
 call plug#end()
 
 filetype plugin indent on
