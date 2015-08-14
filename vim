@@ -30,6 +30,7 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-fugitive'
 " Plug 'vim-scripts/paredit.vim'
 Plug 'kovisoft/slimv'
+Plug 'kyuhi/vim-emoji-complete'
 call plug#end()
 
 filetype plugin indent on
@@ -37,11 +38,11 @@ syntax on
 set t_Co=256
 
 " colorscheme moloka
-colorscheme badwolf
-set background=light
+colorscheme gruvbox
+set background=dark
 
 " vim-airline
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled=1
 set laststatus=2
 
 " snips
@@ -148,20 +149,19 @@ augroup END
 " }}}
 
 " tags set
-set tags+=tags,/
+set tags+=tags;/tags
 " tagbar set , need tagbar install first
 nnoremap <F8> :TagbarToggle<cr>
-augroup ctagsupdate
-    au!
-    au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
-augroup END
 
 
 " use Unite to search rec file
 nnoremap <c-p> :Unite file_rec <cr>
 nnoremap <c-o> :Unite buffer <cr>
-nnoremap <leader>u :Unite 
+nnoremap <leader>u :Unite
 
 
-
+" slimv
+let g:slimv_swank_cmd = '!xterm -e sbcl --load ~/.vim/plugged/slimv/slime/start-swank.lisp &'
+" let g:slimv_lisp = '~/sbcl/bin/sbcl'
+" let g:slimv_impl = 'sbcl'
 
