@@ -16,14 +16,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'honza/vim-snippets'
 Plug 'bling/vim-airline'
-Plug 'Shougo/unite.vim'
+Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'sjl/badwolf'
 Plug 'SirVer/ultisnips'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'wlangstroth/vim-racket'
-Plug 'raichoo/haskell-vim'
+Plug 'pangloss/vim-javascript'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
@@ -31,6 +29,9 @@ Plug 'tpope/vim-fugitive'
 " Plug 'vim-scripts/paredit.vim'
 Plug 'kovisoft/slimv'
 Plug 'kyuhi/vim-emoji-complete'
+" python indent
+Plug 'hynek/vim-python-pep8-indent'
+
 call plug#end()
 
 filetype plugin indent on
