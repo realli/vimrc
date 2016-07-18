@@ -26,11 +26,13 @@ Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-fugitive'
-" Plug 'vim-scripts/paredit.vim'
-Plug 'kovisoft/slimv'
+Plug 'vim-scripts/paredit.vim'
+" Plug 'kovisoft/slimv'
 Plug 'kyuhi/vim-emoji-complete'
 " python indent
 Plug 'hynek/vim-python-pep8-indent'
+Plug 'tpope/vim-fireplace'
+Plug 'guns/vim-clojure-static'
 
 call plug#end()
 
