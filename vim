@@ -22,6 +22,7 @@ Plug 'sjl/badwolf'
 Plug 'SirVer/ultisnips'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
@@ -33,6 +34,7 @@ Plug 'kyuhi/vim-emoji-complete'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'tpope/vim-fireplace'
 Plug 'guns/vim-clojure-static'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
@@ -147,7 +149,12 @@ augroup comments
     autocmd FileType vim setlocal foldmethod=marker
     autocmd FileType python setlocal sw=4 ts=4 expandtab
     autocmd FileType haskell setlocal sw=4 ts=4 expandtab
+    autocmd FileType css setlocal sw=2 ts=2 expandtab
+    autocmd FileType scss setlocal sw=2 ts=2 expandtab
+    autocmd FileType javascript setlocal sw=2 ts=2 expandtab
 augroup END
+
+let g:jsx_ext_required = 0
 
 " }}}
 
